@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <title>Task Managrer</title>
+      <style>
+        body{
+            font-family: arial, sans-serif;
+            margin: 40px;
+        }
+        form{
+            margin-bottom: 20px;
+        }
+        .task{
+            margin-bottom: 10px
+        }
+        .delete-button{
+            margin-left: 10px;
+            color: red;
+            text-decoration: none;
+        }
+        </style>
+</head>
+<body>
+       <h1>My task Manager</h1>
+
+       <!-- form to add tasks -->
+       <form action ="/add" method="post">
+             <input type ="text" name="content" placeholder="Enter new task" required>
+             <button type ="submit">Add task</button>
+        </form>
+
+        <!--list of tasks -->
+        {% for task in tasks %}
+    <div class="task">
+        {{ loop.index }} - {{ task['content'] }}
+        <a href="/delete/{{ loop.index0 }}" class="delete-button">[Delete]</a>
+    </div>
+{% endfor %}
+
+</body>
+</html>
+
