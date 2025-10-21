@@ -1,42 +1,155 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-      <title>Task Managrer</title>
-      <style>
-        body{
-            font-family: arial, sans-serif;
-            margin: 40px;
-        }
-        form{
-            margin-bottom: 20px;
-        }
-        .task{
-            margin-bottom: 10px
-        }
-        .delete-button{
-            margin-left: 10px;
-            color: red;
-            text-decoration: none;
-        }
-        </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager</title>
+  <style>
+    /* Modern Netflix-style UI */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #141e30, #243b55);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      width: 400px;
+      padding: 30px;
+      text-align: center;
+      animation: fadeIn 0.8s ease;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+
+    form {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      border-radius: 12px;
+    }
+
+    input[type="text"] {
+      width: 70%;
+      padding: 10px;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    input::placeholder {
+      color: #ccc;
+    }
+
+    button {
+      background: #e50914;
+      border: none;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ff1e26;
+      transform: scale(1.05);
+    }
+
+    .task-list {
+      text-align: left;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .task {
+      background: rgba(255, 255, 255, 0.08);
+      margin-bottom: 10px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.3s;
+    }
+
+    .task:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateX(3px);
+    }
+
+    .delete-button {
+      color: #e50914;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .delete-button:hover {
+      color: #ff5252;
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      margin-top: 15px;
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+  </style>
 </head>
 <body>
-       <h1>My task Manager</h1>
+  <div class="container">
+    <h1>🧠 My Task Manager</h1>
 
-       <!-- form to add tasks -->
-       <form action ="/add" method="post">
-             <input type ="text" name="content" placeholder="Enter new task" required>
-             <button type ="submit">Add task</button>
-        </form>
+    <!-- Form to add tasks -->
+    <form action="/add" method="post">
+      <input type="text" name="content" placeholder="Enter a new task..." required />
+      <button type="submit">Add</button>
+    </form>
 
-        <!--list of tasks -->
+    <!-- List of tasks -->
+    <div class="task-list">
+      {% if tasks %}
         {% for task in tasks %}
-    <div class="task">
-        {{ loop.index }} - {{ task['content'] }}
-        <a href="/delete/{{ loop.index0 }}" class="delete-button">[Delete]</a>
+          <div class="task">
+            <span>{{ loop.index }}. {{ task['content'] }}</span>
+            <a href="/delete/{{ loop.index0 }}" class="delete-button">✕</a>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p style="opacity: 0.6;">No tasks yet. Add one above!</p>
+      {% endif %}
     </div>
-{% endfor %}
 
+    <footer>Designed by Obakeng 💻</footer>
+  </div>
 </body>
 </html>
-
