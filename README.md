@@ -1,49 +1,56 @@
-# Flask Task Manager
+# 🧠 Flask Task Manager
 
-This is a simple task manager web application built with Python and Flask.
+A modern and visually appealing **Task Manager Web App** built using **Flask (Python)** with a clean, Netflix-inspired glassmorphism UI.  
+Users can add and delete tasks dynamically with a simple, smooth, and responsive interface.
 
-## 🔧 Features
+🌐 **Live Demo:**  
+👉 [https://flask-task-manager-wvj8.onrender.com](https://flask-task-manager-wvj8.onrender.com)
 
-- Add, view, and delete tasks
-- Mark tasks as completed
-- Web interface using HTML (Flask templates)
+---
 
-## 🚀 Technologies Used
+## 🚀 Features
 
-- Python
-- Flask
-- HTML
-- Bootstrap (optional if you add styling)
+✅ Add new tasks quickly and easily  
+✅ Delete existing tasks with one click  
+✅ Sleek, modern UI with animated effects  
+✅ Responsive design that looks great on all devices  
+✅ Lightweight Flask backend with in-memory storage  
 
-## 📁 Project Structure
+---
 
-task_manager/
-├── app.py
-└── templates/
-└── index.html
+## 🧩 Tech Stack
 
+| Layer | Technology |
+|--------|-------------|
+| **Frontend** | HTML5, CSS3 (Glassmorphism, Animations) |
+| **Backend** | Python (Flask Framework) |
+| **Server** | Gunicorn via Render |
+| **Version Control** | Git & GitHub |
 
-## ▶️ How to Run Locally
+---
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/MrHlahle/flask-task-manager.git
-   cd flask-task-manager
-2.Create a virtual environment:
-python -m venv venv
-venv\Scripts\activate  # On Windows
-3.Install Flask:
-pip install flask
-4.Run the app:
+## ⚙️ Local Setup Instructions
+
+To run this app locally on your machine:
+
+```bash
+# Clone this repository
+git clone https://github.com/MrHlahle/flask-task-manager.git
+
+# Move into the project directory
+cd flask-task-manager
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the Flask app
 python app.py
-5.Open your browser and go to: http://127.0.0.1:5000
 
-📌 Future Improvements
-Add user authentication
+Then open your browser and visit:
+http://127.0.0.1:5000
 
-Store tasks in a database
-
-Add task categories and deadlines
-
-👤 Author
+🧑‍💻 Developer
 Obakeng Hlahle
+Executive Assistant & Software Developer
+📧 obakenghlahle4@gmail.com
+🌐 GitHub: MrHlahle
